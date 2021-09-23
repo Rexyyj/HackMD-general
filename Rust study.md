@@ -61,3 +61,43 @@ impl Rectangle {
 
 7. Another useful feature of impl blocks is that we’re allowed to define functions within impl blocks that don’t take self as a parameter. These are called associated functions because they’re associated with the struct.They’re still functions, not methods.
 8. Each struct is allowed to have multiple impl blocks. 
+
+## Enums
+1. Ways to define an Enum:
+```rust=
+//Baisc
+enum IpAddrKind {
+    V4,
+    V6,
+}
+// Enums with data
+enum IpAddr {
+        V4(String),
+        V6(String),
+    }
+// Enums with many data
+enum IpAddr {
+        V4(u8, u8, u8, u8),
+        V6(String),
+    }
+// Enums has different data type
+enum Message {
+    Quit,
+    Move { x: i32, y: i32 },
+    Write(String),
+    ChangeColor(i32, i32, i32),
+}
+
+```
+2. Enums are also able to define methods with "impl" keyword.
+3. Handling with None????
+4. "match" is a flow operator that allows you to compare a value against a series of patterns and then execute code based on which pattern matches. 
+5. In a "match" operation, all the possible enums should be covered, other wise, compile errors occur.
+6. If we don't want to list all possible values of the Enums, we can use "_" to represent the handling of the rest values.
+7. "if let" syntax
+```rust=
+let some_u8_value = Some(0u8);
+if let Some(3) = some_u8_value {
+    println!("three");
+}// if some_u8_value equal to Some(3), print "three"
+```
